@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated gradient wordmark. Regenerate with tools/make_title.py if the name changes. -->
-<img src="assets/title.svg" alt="CodedbyAKSA" width="560">
+<img src="assets/title.svg" alt="CodedbyAKSA" width="100%">
 
 <img src="assets/hero.png" alt="CodedbyAKSA" width="600">
 
