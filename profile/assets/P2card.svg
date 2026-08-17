@@ -51,9 +51,9 @@
              width="160.0" height="240"/>
     </g>
     
-    <rect x="0" y="0" width="230" height="46" fill="url(#scan)" opacity="0.1">
+    <rect x="0" y="-60" width="230" height="46" fill="url(#scan)" opacity="0.1">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -60;0 290" dur="7s" repeatCount="indefinite"/>
+                        values="0 0;0 350" dur="7s" repeatCount="indefinite"/>
     </rect>
     
     <g stroke="#67e8f9" stroke-width="2" fill="none" opacity="0.75" stroke-linecap="round">

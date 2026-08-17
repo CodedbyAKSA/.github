@@ -40,5 +40,20 @@ sibling files. Motion is SMIL, which does run in proxied `<img>` SVGs.
 
 The palette and animation clock are constants at the top of the generator.
 
+## Two rules for referencing these from the README
+
+**Link them by absolute `raw.githubusercontent.com` URL, not a relative path.**
+The profile README lives in `profile/`, but the GitHub mobile app presents it
+as `CodedbyAKSA/README.md` and resolves relative paths against the repo root,
+so `assets/title.svg` 404s there and every image renders as a broken link.
+Absolute URLs resolve the same everywhere. (This is also why the shields.io
+badges kept working when nothing else did — they were already absolute.)
+
+**Keep the finished frame in the elements' own attributes.** Staged entrances
+animate from `0s` with the delay encoded in `keyTimes`, rather than sitting at
+`opacity="0"` waiting for a `begin` time. A renderer that ignores SMIL then
+shows the completed artwork instead of a near-empty canvas. `tools/make_art.py`
+has a `reveal()` helper that does this — use it for anything that fades in.
+
 Once these are committed the profile renders automatically at
 <https://github.com/CodedbyAKSA>.

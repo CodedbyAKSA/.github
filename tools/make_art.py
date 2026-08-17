@@ -184,11 +184,27 @@ def corner_ticks(w, h, m=14, L=26, col=CYAN):
 
 
 def scanline(w, h, dur=6.5, op=0.10):
+    # parked off-canvas so a renderer that ignores SMIL shows nothing rather
+    # than a stray band across the top
     return f'''
-    <rect x="0" y="0" width="{w}" height="46" fill="url(#scan)" opacity="{op}">
+    <rect x="0" y="-60" width="{w}" height="46" fill="url(#scan)" opacity="{op}">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -60;0 {h + 20}" dur="{dur}s" repeatCount="indefinite"/>
+                        values="0 0;0 {h + 80}" dur="{dur}s" repeatCount="indefinite"/>
     </rect>'''
+
+
+# Reveal timeline. Every staged entrance runs as one animation starting at 0s
+# whose delay is encoded in keyTimes, and the element's own attributes hold the
+# FINAL state. So if SMIL never runs -- a renderer without animation support,
+# reduced-motion, a thumbnailer -- the artwork still shows its finished frame
+# instead of a mostly-empty canvas.
+REVEAL_TOTAL = 7.0
+
+
+def reveal(t0, d=0.4, attr="opacity", lo="0", hi="1", total=REVEAL_TOTAL):
+    k1, k2 = t0 / total, (t0 + d) / total
+    return (f'<animate attributeName="{attr}" values="{lo};{lo};{hi};{hi}" '
+            f'keyTimes="0;{k1:.4f};{k2:.4f};1" dur="{total}s" begin="0s" fill="freeze"/>')
 
 
 SHARED_DEFS = f'''
@@ -241,13 +257,14 @@ def build_title():
             f'transform="translate({k * DX:.2f} {k * DY:.2f})"/>'
             for k in range(DEPTH, 0, -1)
         )
+        kp = (t0 / REVEAL_TOTAL, (t0 + 0.17) / REVEAL_TOTAL, (t0 + 0.26) / REVEAL_TOTAL)
         letters.append(f'''
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="{t0:.3f}s" fill="freeze"/>
+    <g opacity="1">
+      {reveal(t0, 0.13)}
       <g transform="translate({cx:.1f} {TITLE_CY})">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="{t0:.3f}s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;{kp[0]:.4f};{kp[1]:.4f};{kp[2]:.4f};1"
+                          dur="{REVEAL_TOTAL}s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate({-cx:.1f} {-TITLE_CY})">
           <g fill="url(#extrude)">{ext}</g>
           <use href="#g{i}" xlink:href="#g{i}" fill="url(#flow)"/>
@@ -256,9 +273,8 @@ def build_title():
     </g>''')
 
     halo = "".join(
-        f'<use href="#g{i}" xlink:href="#g{i}" opacity="0">'
-        f'<animate attributeName="opacity" from="0" to="1" dur="0.18s" '
-        f'begin="{T_TYPE + i * STEP:.3f}s" fill="freeze"/></use>'
+        f'<use href="#g{i}" xlink:href="#g{i}" opacity="1">'
+        f'{reveal(T_TYPE + i * STEP, 0.18)}</use>'
         for i in range(len(paths))
     )
 
@@ -273,9 +289,8 @@ def build_title():
         col = [CYAN, VIOLET, "#86efac"][i]
         begin = type_end + 0.2 + i * 0.75
         lines.append(f'''
-      <clipPath id="tc{i}"><rect x="0" y="{i * 19}" height="18" y2="0" width="0">
-        <animate attributeName="width" from="0" to="205" dur="0.7s"
-                 begin="{begin:.2f}s" fill="freeze"/></rect></clipPath>
+      <clipPath id="tc{i}"><rect x="0" y="{i * 19}" height="18" width="205">
+        {reveal(begin, 0.7, "width", "0", "205")}</rect></clipPath>
       <text x="0" y="{i * 19 + 13}" font-family="{MONO}" font-size="12.5" fill="{col}"
             clip-path="url(#tc{i})">{ln}</text>''')
 
@@ -375,8 +390,8 @@ def build_title():
     </g>
 
     <!-- orbit + rocket -->
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.7s" begin="{T_ORBIT:.2f}s" fill="freeze"/>
+    <g opacity="1">
+      {reveal(T_ORBIT, 0.7)}
       <path d="{orbit}" fill="none" stroke="url(#edge)" stroke-width="2" opacity="0.5"/>
       <path d="{orbit}" fill="none" stroke="url(#edge)" stroke-width="6" opacity="0.55"
             stroke-linecap="round" filter="url(#soft)" stroke-dasharray="220 1600">
@@ -406,15 +421,14 @@ def build_title():
     </g>
 
     <text x="{W/2}" y="258" text-anchor="middle" font-family="{MONO}" font-size="12.5"
-          fill="{CYAN}" letter-spacing="4.5" opacity="0">
+          fill="{CYAN}" letter-spacing="4.5" opacity="0.9">
       BUILD &#8226; CREATE &#8226; SHIP &#8226; WIN
-      <animate attributeName="opacity" from="0" to="0.9" dur="0.8s"
-               begin="{T_ORBIT + 0.3:.2f}s" fill="freeze"/>
+      {reveal(T_ORBIT + 0.3, 0.8, "opacity", "0", "0.9")}
     </text>
 
     <!-- terminal -->
-    <g transform="translate(34 306)" opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{type_end:.2f}s" fill="freeze"/>
+    <g transform="translate(34 306)" opacity="1">
+      {reveal(type_end, 0.5)}
       <rect x="-12" y="-16" width="238" height="76" rx="8" fill="{PANEL}"
             stroke="{VIOLET}" stroke-width="1.5" opacity="0.95"/>
       <g>{''.join(lines)}</g>
@@ -425,15 +439,13 @@ def build_title():
     {trophy(1092, 104, 0.6, type_end + 0.25)}
 
     <!-- progress strip -->
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{type_end:.2f}s" fill="freeze"/>
+    <g opacity="1">
+      {reveal(type_end, 0.5)}
       <text x="34" y="396" font-family="{MONO}" font-size="11.5" fill="{CYAN}"
             opacity="0.8" letter-spacing="2.4">INITIALIZING CREATIVE ENGINE</text>
       <rect x="34" y="406" width="{W - 68}" height="3" rx="1.5" fill="{GRID}" opacity="0.5"/>
-      <rect x="34" y="406" width="0" height="3" rx="1.5" fill="url(#edge)">
-        <animate attributeName="width" from="0" to="{W - 68}" dur="3.4s"
-                 begin="{type_end:.2f}s" fill="freeze"
-                 calcMode="spline" keySplines="0.2 0.7 0.3 1"/>
+      <rect x="34" y="406" width="{W - 68}" height="3" rx="1.5" fill="url(#edge)">
+        {reveal(type_end, 3.4, "width", "0", str(W - 68))}
       </rect>
     </g>
 
@@ -470,8 +482,8 @@ def laptop(x, y, s, begin):
             [(30, 18, CYAN), (20, 34, VIOLET), (36, 22, "#a5f3fc"), (16, 28, MAGENTA)])
     )
     return f'''
-  <g transform="translate({x} {y})" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="{begin:.2f}s" fill="freeze"/>
+  <g transform="translate({x} {y})" opacity="1">
+    {reveal(begin, 0.6)}
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0"
                         dur="4.4s" repeatCount="indefinite" calcMode="spline"
@@ -497,8 +509,8 @@ def trophy(x, y, s, begin):
         for dx, dy, r, d in ((-44, -30, 4.2, 1.7), (42, -22, 3.4, 2.2), (40, 24, 3.8, 1.9))
     )
     return f'''
-  <g transform="translate({x} {y})" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="{begin:.2f}s" fill="freeze"/>
+  <g transform="translate({x} {y})" opacity="1">
+    {reveal(begin, 0.6)}
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0"
                         dur="3.8s" repeatCount="indefinite" calcMode="spline"

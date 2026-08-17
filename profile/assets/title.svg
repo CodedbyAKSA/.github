@@ -148,12 +148,12 @@
     <g filter="url(#halo)" fill="#6d28d9" opacity="0.55">
       <animate attributeName="opacity" values="0.34;0.68;0.34" dur="3.6s"
                begin="3.46s" repeatCount="indefinite"/>
-      <use href="#g0" xlink:href="#g0" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.400s" fill="freeze"/></use><use href="#g1" xlink:href="#g1" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.515s" fill="freeze"/></use><use href="#g2" xlink:href="#g2" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.630s" fill="freeze"/></use><use href="#g3" xlink:href="#g3" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.745s" fill="freeze"/></use><use href="#g4" xlink:href="#g4" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.860s" fill="freeze"/></use><use href="#g5" xlink:href="#g5" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="1.975s" fill="freeze"/></use><use href="#g6" xlink:href="#g6" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="2.090s" fill="freeze"/></use><use href="#g7" xlink:href="#g7" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="2.205s" fill="freeze"/></use><use href="#g8" xlink:href="#g8" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="2.320s" fill="freeze"/></use><use href="#g9" xlink:href="#g9" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="2.435s" fill="freeze"/></use><use href="#g10" xlink:href="#g10" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.18s" begin="2.550s" fill="freeze"/></use>
+      <use href="#g0" xlink:href="#g0" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2000;0.2257;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g1" xlink:href="#g1" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2164;0.2421;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g2" xlink:href="#g2" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2329;0.2586;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g3" xlink:href="#g3" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2493;0.2750;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g4" xlink:href="#g4" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2657;0.2914;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g5" xlink:href="#g5" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2821;0.3079;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g6" xlink:href="#g6" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2986;0.3243;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g7" xlink:href="#g7" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3150;0.3407;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g8" xlink:href="#g8" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3314;0.3571;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g9" xlink:href="#g9" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3479;0.3736;1" dur="7.0s" begin="0s" fill="freeze"/></use><use href="#g10" xlink:href="#g10" opacity="1"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3643;0.3900;1" dur="7.0s" begin="0s" fill="freeze"/></use>
     </g>
 
     <!-- orbit + rocket -->
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.7s" begin="3.05s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.4357;0.5357;1" dur="7.0s" begin="0s" fill="freeze"/>
       <path d="M 270.0,252 a 330,58 0 1,0 660,0 a 330,58 0 1,0 -660,0" fill="none" stroke="url(#edge)" stroke-width="2" opacity="0.5"/>
       <path d="M 270.0,252 a 330,58 0 1,0 660,0 a 330,58 0 1,0 -660,0" fill="none" stroke="url(#edge)" stroke-width="6" opacity="0.55"
             stroke-linecap="round" filter="url(#soft)" stroke-dasharray="220 1600">
@@ -168,132 +168,132 @@
     </g>
 
     <g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.400s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2000;0.2186;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(213.4 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.400s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2000;0.2243;0.2371;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-213.4 -178)">
           <g fill="url(#extrude)"><use href="#g0" xlink:href="#g0" transform="translate(17.50 18.90)"/><use href="#g0" xlink:href="#g0" transform="translate(16.25 17.55)"/><use href="#g0" xlink:href="#g0" transform="translate(15.00 16.20)"/><use href="#g0" xlink:href="#g0" transform="translate(13.75 14.85)"/><use href="#g0" xlink:href="#g0" transform="translate(12.50 13.50)"/><use href="#g0" xlink:href="#g0" transform="translate(11.25 12.15)"/><use href="#g0" xlink:href="#g0" transform="translate(10.00 10.80)"/><use href="#g0" xlink:href="#g0" transform="translate(8.75 9.45)"/><use href="#g0" xlink:href="#g0" transform="translate(7.50 8.10)"/><use href="#g0" xlink:href="#g0" transform="translate(6.25 6.75)"/><use href="#g0" xlink:href="#g0" transform="translate(5.00 5.40)"/><use href="#g0" xlink:href="#g0" transform="translate(3.75 4.05)"/><use href="#g0" xlink:href="#g0" transform="translate(2.50 2.70)"/><use href="#g0" xlink:href="#g0" transform="translate(1.25 1.35)"/></g>
           <use href="#g0" xlink:href="#g0" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.515s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2164;0.2350;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(291.6 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.515s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2164;0.2407;0.2536;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-291.6 -178)">
           <g fill="url(#extrude)"><use href="#g1" xlink:href="#g1" transform="translate(17.50 18.90)"/><use href="#g1" xlink:href="#g1" transform="translate(16.25 17.55)"/><use href="#g1" xlink:href="#g1" transform="translate(15.00 16.20)"/><use href="#g1" xlink:href="#g1" transform="translate(13.75 14.85)"/><use href="#g1" xlink:href="#g1" transform="translate(12.50 13.50)"/><use href="#g1" xlink:href="#g1" transform="translate(11.25 12.15)"/><use href="#g1" xlink:href="#g1" transform="translate(10.00 10.80)"/><use href="#g1" xlink:href="#g1" transform="translate(8.75 9.45)"/><use href="#g1" xlink:href="#g1" transform="translate(7.50 8.10)"/><use href="#g1" xlink:href="#g1" transform="translate(6.25 6.75)"/><use href="#g1" xlink:href="#g1" transform="translate(5.00 5.40)"/><use href="#g1" xlink:href="#g1" transform="translate(3.75 4.05)"/><use href="#g1" xlink:href="#g1" transform="translate(2.50 2.70)"/><use href="#g1" xlink:href="#g1" transform="translate(1.25 1.35)"/></g>
           <use href="#g1" xlink:href="#g1" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.630s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2329;0.2514;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(364.2 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.630s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2329;0.2571;0.2700;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-364.2 -178)">
           <g fill="url(#extrude)"><use href="#g2" xlink:href="#g2" transform="translate(17.50 18.90)"/><use href="#g2" xlink:href="#g2" transform="translate(16.25 17.55)"/><use href="#g2" xlink:href="#g2" transform="translate(15.00 16.20)"/><use href="#g2" xlink:href="#g2" transform="translate(13.75 14.85)"/><use href="#g2" xlink:href="#g2" transform="translate(12.50 13.50)"/><use href="#g2" xlink:href="#g2" transform="translate(11.25 12.15)"/><use href="#g2" xlink:href="#g2" transform="translate(10.00 10.80)"/><use href="#g2" xlink:href="#g2" transform="translate(8.75 9.45)"/><use href="#g2" xlink:href="#g2" transform="translate(7.50 8.10)"/><use href="#g2" xlink:href="#g2" transform="translate(6.25 6.75)"/><use href="#g2" xlink:href="#g2" transform="translate(5.00 5.40)"/><use href="#g2" xlink:href="#g2" transform="translate(3.75 4.05)"/><use href="#g2" xlink:href="#g2" transform="translate(2.50 2.70)"/><use href="#g2" xlink:href="#g2" transform="translate(1.25 1.35)"/></g>
           <use href="#g2" xlink:href="#g2" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.745s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2493;0.2679;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(436.3 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.745s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2493;0.2736;0.2864;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-436.3 -178)">
           <g fill="url(#extrude)"><use href="#g3" xlink:href="#g3" transform="translate(17.50 18.90)"/><use href="#g3" xlink:href="#g3" transform="translate(16.25 17.55)"/><use href="#g3" xlink:href="#g3" transform="translate(15.00 16.20)"/><use href="#g3" xlink:href="#g3" transform="translate(13.75 14.85)"/><use href="#g3" xlink:href="#g3" transform="translate(12.50 13.50)"/><use href="#g3" xlink:href="#g3" transform="translate(11.25 12.15)"/><use href="#g3" xlink:href="#g3" transform="translate(10.00 10.80)"/><use href="#g3" xlink:href="#g3" transform="translate(8.75 9.45)"/><use href="#g3" xlink:href="#g3" transform="translate(7.50 8.10)"/><use href="#g3" xlink:href="#g3" transform="translate(6.25 6.75)"/><use href="#g3" xlink:href="#g3" transform="translate(5.00 5.40)"/><use href="#g3" xlink:href="#g3" transform="translate(3.75 4.05)"/><use href="#g3" xlink:href="#g3" transform="translate(2.50 2.70)"/><use href="#g3" xlink:href="#g3" transform="translate(1.25 1.35)"/></g>
           <use href="#g3" xlink:href="#g3" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.860s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2657;0.2843;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(507.3 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.860s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2657;0.2900;0.3029;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-507.3 -178)">
           <g fill="url(#extrude)"><use href="#g4" xlink:href="#g4" transform="translate(17.50 18.90)"/><use href="#g4" xlink:href="#g4" transform="translate(16.25 17.55)"/><use href="#g4" xlink:href="#g4" transform="translate(15.00 16.20)"/><use href="#g4" xlink:href="#g4" transform="translate(13.75 14.85)"/><use href="#g4" xlink:href="#g4" transform="translate(12.50 13.50)"/><use href="#g4" xlink:href="#g4" transform="translate(11.25 12.15)"/><use href="#g4" xlink:href="#g4" transform="translate(10.00 10.80)"/><use href="#g4" xlink:href="#g4" transform="translate(8.75 9.45)"/><use href="#g4" xlink:href="#g4" transform="translate(7.50 8.10)"/><use href="#g4" xlink:href="#g4" transform="translate(6.25 6.75)"/><use href="#g4" xlink:href="#g4" transform="translate(5.00 5.40)"/><use href="#g4" xlink:href="#g4" transform="translate(3.75 4.05)"/><use href="#g4" xlink:href="#g4" transform="translate(2.50 2.70)"/><use href="#g4" xlink:href="#g4" transform="translate(1.25 1.35)"/></g>
           <use href="#g4" xlink:href="#g4" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="1.975s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2821;0.3007;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(581.5 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="1.975s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2821;0.3064;0.3193;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-581.5 -178)">
           <g fill="url(#extrude)"><use href="#g5" xlink:href="#g5" transform="translate(17.50 18.90)"/><use href="#g5" xlink:href="#g5" transform="translate(16.25 17.55)"/><use href="#g5" xlink:href="#g5" transform="translate(15.00 16.20)"/><use href="#g5" xlink:href="#g5" transform="translate(13.75 14.85)"/><use href="#g5" xlink:href="#g5" transform="translate(12.50 13.50)"/><use href="#g5" xlink:href="#g5" transform="translate(11.25 12.15)"/><use href="#g5" xlink:href="#g5" transform="translate(10.00 10.80)"/><use href="#g5" xlink:href="#g5" transform="translate(8.75 9.45)"/><use href="#g5" xlink:href="#g5" transform="translate(7.50 8.10)"/><use href="#g5" xlink:href="#g5" transform="translate(6.25 6.75)"/><use href="#g5" xlink:href="#g5" transform="translate(5.00 5.40)"/><use href="#g5" xlink:href="#g5" transform="translate(3.75 4.05)"/><use href="#g5" xlink:href="#g5" transform="translate(2.50 2.70)"/><use href="#g5" xlink:href="#g5" transform="translate(1.25 1.35)"/></g>
           <use href="#g5" xlink:href="#g5" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="2.090s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.2986;0.3171;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(653.6 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="2.090s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.2986;0.3229;0.3357;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-653.6 -178)">
           <g fill="url(#extrude)"><use href="#g6" xlink:href="#g6" transform="translate(17.50 18.90)"/><use href="#g6" xlink:href="#g6" transform="translate(16.25 17.55)"/><use href="#g6" xlink:href="#g6" transform="translate(15.00 16.20)"/><use href="#g6" xlink:href="#g6" transform="translate(13.75 14.85)"/><use href="#g6" xlink:href="#g6" transform="translate(12.50 13.50)"/><use href="#g6" xlink:href="#g6" transform="translate(11.25 12.15)"/><use href="#g6" xlink:href="#g6" transform="translate(10.00 10.80)"/><use href="#g6" xlink:href="#g6" transform="translate(8.75 9.45)"/><use href="#g6" xlink:href="#g6" transform="translate(7.50 8.10)"/><use href="#g6" xlink:href="#g6" transform="translate(6.25 6.75)"/><use href="#g6" xlink:href="#g6" transform="translate(5.00 5.40)"/><use href="#g6" xlink:href="#g6" transform="translate(3.75 4.05)"/><use href="#g6" xlink:href="#g6" transform="translate(2.50 2.70)"/><use href="#g6" xlink:href="#g6" transform="translate(1.25 1.35)"/></g>
           <use href="#g6" xlink:href="#g6" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="2.205s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3150;0.3336;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(737.3 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="2.205s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.3150;0.3393;0.3521;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-737.3 -178)">
           <g fill="url(#extrude)"><use href="#g7" xlink:href="#g7" transform="translate(17.50 18.90)"/><use href="#g7" xlink:href="#g7" transform="translate(16.25 17.55)"/><use href="#g7" xlink:href="#g7" transform="translate(15.00 16.20)"/><use href="#g7" xlink:href="#g7" transform="translate(13.75 14.85)"/><use href="#g7" xlink:href="#g7" transform="translate(12.50 13.50)"/><use href="#g7" xlink:href="#g7" transform="translate(11.25 12.15)"/><use href="#g7" xlink:href="#g7" transform="translate(10.00 10.80)"/><use href="#g7" xlink:href="#g7" transform="translate(8.75 9.45)"/><use href="#g7" xlink:href="#g7" transform="translate(7.50 8.10)"/><use href="#g7" xlink:href="#g7" transform="translate(6.25 6.75)"/><use href="#g7" xlink:href="#g7" transform="translate(5.00 5.40)"/><use href="#g7" xlink:href="#g7" transform="translate(3.75 4.05)"/><use href="#g7" xlink:href="#g7" transform="translate(2.50 2.70)"/><use href="#g7" xlink:href="#g7" transform="translate(1.25 1.35)"/></g>
           <use href="#g7" xlink:href="#g7" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="2.320s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3314;0.3500;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(823.4 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="2.320s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.3314;0.3557;0.3686;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-823.4 -178)">
           <g fill="url(#extrude)"><use href="#g8" xlink:href="#g8" transform="translate(17.50 18.90)"/><use href="#g8" xlink:href="#g8" transform="translate(16.25 17.55)"/><use href="#g8" xlink:href="#g8" transform="translate(15.00 16.20)"/><use href="#g8" xlink:href="#g8" transform="translate(13.75 14.85)"/><use href="#g8" xlink:href="#g8" transform="translate(12.50 13.50)"/><use href="#g8" xlink:href="#g8" transform="translate(11.25 12.15)"/><use href="#g8" xlink:href="#g8" transform="translate(10.00 10.80)"/><use href="#g8" xlink:href="#g8" transform="translate(8.75 9.45)"/><use href="#g8" xlink:href="#g8" transform="translate(7.50 8.10)"/><use href="#g8" xlink:href="#g8" transform="translate(6.25 6.75)"/><use href="#g8" xlink:href="#g8" transform="translate(5.00 5.40)"/><use href="#g8" xlink:href="#g8" transform="translate(3.75 4.05)"/><use href="#g8" xlink:href="#g8" transform="translate(2.50 2.70)"/><use href="#g8" xlink:href="#g8" transform="translate(1.25 1.35)"/></g>
           <use href="#g8" xlink:href="#g8" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="2.435s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3479;0.3664;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(897.7 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="2.435s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.3479;0.3721;0.3850;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-897.7 -178)">
           <g fill="url(#extrude)"><use href="#g9" xlink:href="#g9" transform="translate(17.50 18.90)"/><use href="#g9" xlink:href="#g9" transform="translate(16.25 17.55)"/><use href="#g9" xlink:href="#g9" transform="translate(15.00 16.20)"/><use href="#g9" xlink:href="#g9" transform="translate(13.75 14.85)"/><use href="#g9" xlink:href="#g9" transform="translate(12.50 13.50)"/><use href="#g9" xlink:href="#g9" transform="translate(11.25 12.15)"/><use href="#g9" xlink:href="#g9" transform="translate(10.00 10.80)"/><use href="#g9" xlink:href="#g9" transform="translate(8.75 9.45)"/><use href="#g9" xlink:href="#g9" transform="translate(7.50 8.10)"/><use href="#g9" xlink:href="#g9" transform="translate(6.25 6.75)"/><use href="#g9" xlink:href="#g9" transform="translate(5.00 5.40)"/><use href="#g9" xlink:href="#g9" transform="translate(3.75 4.05)"/><use href="#g9" xlink:href="#g9" transform="translate(2.50 2.70)"/><use href="#g9" xlink:href="#g9" transform="translate(1.25 1.35)"/></g>
           <use href="#g9" xlink:href="#g9" fill="url(#flow)"/>
         </g>
       </g>
     </g>
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.13s" begin="2.550s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3643;0.3829;1" dur="7.0s" begin="0s" fill="freeze"/>
       <g transform="translate(980.1 178)">
-        <animateTransform attributeName="transform" type="scale" values="1.4;0.94;1"
-                          keyTimes="0;0.65;1" dur="0.26s" additive="sum"
-                          begin="2.550s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values="1.4;1.4;0.94;1;1"
+                          keyTimes="0;0.3643;0.3886;0.4014;1"
+                          dur="7.0s" additive="sum" begin="0s" fill="freeze"/>
         <g transform="translate(-980.1 -178)">
           <g fill="url(#extrude)"><use href="#g10" xlink:href="#g10" transform="translate(17.50 18.90)"/><use href="#g10" xlink:href="#g10" transform="translate(16.25 17.55)"/><use href="#g10" xlink:href="#g10" transform="translate(15.00 16.20)"/><use href="#g10" xlink:href="#g10" transform="translate(13.75 14.85)"/><use href="#g10" xlink:href="#g10" transform="translate(12.50 13.50)"/><use href="#g10" xlink:href="#g10" transform="translate(11.25 12.15)"/><use href="#g10" xlink:href="#g10" transform="translate(10.00 10.80)"/><use href="#g10" xlink:href="#g10" transform="translate(8.75 9.45)"/><use href="#g10" xlink:href="#g10" transform="translate(7.50 8.10)"/><use href="#g10" xlink:href="#g10" transform="translate(6.25 6.75)"/><use href="#g10" xlink:href="#g10" transform="translate(5.00 5.40)"/><use href="#g10" xlink:href="#g10" transform="translate(3.75 4.05)"/><use href="#g10" xlink:href="#g10" transform="translate(2.50 2.70)"/><use href="#g10" xlink:href="#g10" transform="translate(1.25 1.35)"/></g>
           <use href="#g10" xlink:href="#g10" fill="url(#flow)"/>
@@ -315,38 +315,34 @@
     </g>
 
     <text x="600.0" y="258" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5"
-          fill="#67e8f9" letter-spacing="4.5" opacity="0">
+          fill="#67e8f9" letter-spacing="4.5" opacity="0.9">
       BUILD &#8226; CREATE &#8226; SHIP &#8226; WIN
-      <animate attributeName="opacity" from="0" to="0.9" dur="0.8s"
-               begin="3.35s" fill="freeze"/>
+      <animate attributeName="opacity" values="0;0;0.9;0.9" keyTimes="0;0.4786;0.5929;1" dur="7.0s" begin="0s" fill="freeze"/>
     </text>
 
     <!-- terminal -->
-    <g transform="translate(34 306)" opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.67s" fill="freeze"/>
+    <g transform="translate(34 306)" opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3807;0.4521;1" dur="7.0s" begin="0s" fill="freeze"/>
       <rect x="-12" y="-16" width="238" height="76" rx="8" fill="#0a0e2e"
             stroke="#a78bfa" stroke-width="1.5" opacity="0.95"/>
       <g>
-      <clipPath id="tc0"><rect x="0" y="0" height="18" y2="0" width="0">
-        <animate attributeName="width" from="0" to="205" dur="0.7s"
-                 begin="2.87s" fill="freeze"/></rect></clipPath>
+      <clipPath id="tc0"><rect x="0" y="0" height="18" width="205">
+        <animate attributeName="width" values="0;0;205;205" keyTimes="0;0.4093;0.5093;1" dur="7.0s" begin="0s" fill="freeze"/></rect></clipPath>
       <text x="0" y="13" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#67e8f9"
             clip-path="url(#tc0)">const future = await build();</text>
-      <clipPath id="tc1"><rect x="0" y="19" height="18" y2="0" width="0">
-        <animate attributeName="width" from="0" to="205" dur="0.7s"
-                 begin="3.62s" fill="freeze"/></rect></clipPath>
+      <clipPath id="tc1"><rect x="0" y="19" height="18" width="205">
+        <animate attributeName="width" values="0;0;205;205" keyTimes="0;0.5164;0.6164;1" dur="7.0s" begin="0s" fill="freeze"/></rect></clipPath>
       <text x="0" y="32" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#a78bfa"
             clip-path="url(#tc1)">if (ideas) ship(ideas);</text>
-      <clipPath id="tc2"><rect x="0" y="38" height="18" y2="0" width="0">
-        <animate attributeName="width" from="0" to="205" dur="0.7s"
-                 begin="4.37s" fill="freeze"/></rect></clipPath>
+      <clipPath id="tc2"><rect x="0" y="38" height="18" width="205">
+        <animate attributeName="width" values="0;0;205;205" keyTimes="0;0.6236;0.7236;1" dur="7.0s" begin="0s" fill="freeze"/></rect></clipPath>
       <text x="0" y="51" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#86efac"
             clip-path="url(#tc2)">$ npm run launch</text></g>
     </g>
 
     
-  <g transform="translate(96 108)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.81s" fill="freeze"/>
+  <g transform="translate(96 108)" opacity="1">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.4021;0.4879;1" dur="7.0s" begin="0s" fill="freeze"/>
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0"
                         dur="4.4s" repeatCount="indefinite" calcMode="spline"
@@ -361,8 +357,8 @@
     </g>
   </g>
     
-  <g transform="translate(1044 344)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="3.02s" fill="freeze"/>
+  <g transform="translate(1044 344)" opacity="1">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.4307;0.5164;1" dur="7.0s" begin="0s" fill="freeze"/>
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0"
                         dur="4.4s" repeatCount="indefinite" calcMode="spline"
@@ -377,8 +373,8 @@
     </g>
   </g>
     
-  <g transform="translate(1092 104)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="2.92s" fill="freeze"/>
+  <g transform="translate(1092 104)" opacity="1">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.4164;0.5021;1" dur="7.0s" begin="0s" fill="freeze"/>
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0"
                         dur="3.8s" repeatCount="indefinite" calcMode="spline"
@@ -401,22 +397,20 @@
   </g>
 
     <!-- progress strip -->
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.67s" fill="freeze"/>
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.3807;0.4521;1" dur="7.0s" begin="0s" fill="freeze"/>
       <text x="34" y="396" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#67e8f9"
             opacity="0.8" letter-spacing="2.4">INITIALIZING CREATIVE ENGINE</text>
       <rect x="34" y="406" width="1132" height="3" rx="1.5" fill="#3444a8" opacity="0.5"/>
-      <rect x="34" y="406" width="0" height="3" rx="1.5" fill="url(#edge)">
-        <animate attributeName="width" from="0" to="1132" dur="3.4s"
-                 begin="2.67s" fill="freeze"
-                 calcMode="spline" keySplines="0.2 0.7 0.3 1"/>
+      <rect x="34" y="406" width="1132" height="3" rx="1.5" fill="url(#edge)">
+        <animate attributeName="width" values="0;0;1132;1132" keyTimes="0;0.3807;0.8664;1" dur="7.0s" begin="0s" fill="freeze"/>
       </rect>
     </g>
 
     
-    <rect x="0" y="0" width="1200" height="46" fill="url(#scan)" opacity="0.1">
+    <rect x="0" y="-60" width="1200" height="46" fill="url(#scan)" opacity="0.1">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -60;0 450" dur="6.5s" repeatCount="indefinite"/>
+                        values="0 0;0 510" dur="6.5s" repeatCount="indefinite"/>
     </rect>
   </g>
 </svg>

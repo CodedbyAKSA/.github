@@ -56,8 +56,8 @@
     </path>
   </g>
   
-    <rect x="0" y="0" width="900" height="46" fill="url(#scan)" opacity="0.12">
+    <rect x="0" y="-60" width="900" height="46" fill="url(#scan)" opacity="0.12">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -60;0 136" dur="5.5s" repeatCount="indefinite"/>
+                        values="0 0;0 196" dur="5.5s" repeatCount="indefinite"/>
     </rect>
 </svg>
