@@ -33,7 +33,7 @@
   </defs>
   <rect x="0" y="12.0" width="900" height="2" fill="url(#dl)"/>
   <circle cy="13.0" r="4" fill="#67e8f9" filter="url(#soft)" cx="0">
-    <animate attributeName="cx" values="60;840;60" dur="7s" repeatCount="indefinite"
+    <animate attributeName="cx" values="60;840;60" dur="4.0s" repeatCount="indefinite"
              calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
   </circle>
 </svg>

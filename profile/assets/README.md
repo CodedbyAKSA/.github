@@ -35,13 +35,29 @@ python3 tools/rasterize.py   # .svg    -> .gif / .png / .jpg
 | ---------------------- | ------------------------------ | ------------------------------ |
 | `title.svg`            | `title.gif`                    | Hero banner, wordmark types in |
 | `hero-framed.svg`      | `hero-framed.jpg`              | Team photo in a HUD frame      |
-| `P1card.svg` … `P4card.svg` | `P1card.png` … `P4card.png` | Portraits in framed cards   |
-| `character-select.svg` | `character-select.png`         | Section heading                |
-| `divider.svg`          | `divider.png`                  | Neon rule above the footer     |
+| `P1card.svg` … `P4card.svg` | `P1card.gif` … `P4card.gif` | Portraits in framed cards   |
+| `character-select.svg` | `character-select.gif`         | Section heading                |
+| `divider.svg`          | `divider.gif`                  | Neon rule above the footer     |
 
 All of it shares one deep-navy palette so the profile reads as a single piece
 against GitHub's dark background. The palette and the animation clock are
 constants at the top of `make_art.py`.
+
+### Keeping the loops seamless
+
+Everything that loops forever — card float, border pulse, star twinkle,
+scanline, gradient flow, divider pulse — runs on `LOOP` (4s) or a divisor of
+it. `rasterize.py` then captures exactly one `LOOP` period, so the GIF's last
+frame flows back into its first with no visible jump. **If you add ambient
+motion, give it a duration of `LOOP`, `LOOP/2` or `LOOP/4`** or the loop will
+stutter every 4 seconds.
+
+`title.gif` is the exception: it replays its whole intro, so it deliberately
+cuts from the finished banner back to an empty canvas.
+
+The hero stays a still JPEG — it is a photograph, and 128-colour GIF banding
+across a photo costs far more in quality and bytes than its scanline was
+worth.
 
 ## The README must reference the raster files, not the SVGs
 

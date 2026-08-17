@@ -58,6 +58,11 @@ MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 
 rng = random.Random(11)
 
+# Ambient (endlessly looping) motion all runs on this period, or a divisor
+# of it. rasterize.py cuts the looping GIFs to exactly LOOP seconds, so a
+# shared period is what makes them loop without a visible jump.
+LOOP = 4.0
+
 
 # --- font plumbing ----------------------------------------------------------
 def load_font():
@@ -163,10 +168,10 @@ def starfield(w, h, n=80):
     for _ in range(n):
         x, y = rng.uniform(6, w - 6), rng.uniform(6, h - 6)
         r = rng.choice([0.9, 1.2, 1.5, 2.0])
-        d = rng.uniform(1.8, 4.5)
+        d = rng.choice([LOOP / 2, LOOP])
         out.append(
             f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r}" fill="{STAR}" opacity="0.5">'
-            f'<animate attributeName="opacity" values="0.12;0.85;0.12" dur="{d:.1f}s" '
+            f'<animate attributeName="opacity" values="0.12;0.85;0.12" dur="{d:g}s" '
             f'begin="{-rng.uniform(0, d):.1f}s" repeatCount="indefinite"/></circle>'
         )
     return "".join(out)
@@ -183,7 +188,7 @@ def corner_ticks(w, h, m=14, L=26, col=CYAN):
     </g>'''
 
 
-def scanline(w, h, dur=6.5, op=0.10):
+def scanline(w, h, dur=LOOP, op=0.10):
     # parked off-canvas so a renderer that ignores SMIL shows nothing rather
     # than a stray band across the top
     return f'''
@@ -578,7 +583,7 @@ def build_hero():
   {backdrop(W, H, 14)}
   <rect width="{W}" height="{H}" rx="14" fill="none" stroke="url(#edge)" stroke-width="2"
         opacity="0.75">
-    <animate attributeName="opacity" values="0.45;0.95;0.45" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.45;0.95;0.45" dur="{LOOP}s" repeatCount="indefinite"/>
   </rect>
 
   {dots}
@@ -591,7 +596,7 @@ def build_hero():
     <rect x="{px}" y="{py}" width="{iw}" height="{ih}" fill="url(#vig)"/>
     <rect x="{px}" y="{py}" width="{iw}" height="30" fill="url(#scan)" opacity="0.14">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -40;0 {ih + 40}" dur="7s" repeatCount="indefinite"/>
+                        values="0 -40;0 {ih + 40}" dur="{LOOP}s" repeatCount="indefinite"/>
     </rect>
   </g>
 
@@ -620,7 +625,7 @@ def build_header():
       <stop offset="0" stop-color="{CYAN}"/><stop offset="0.5" stop-color="{VIOLET}"/>
       <stop offset="1" stop-color="{CYAN}"/>
       <animateTransform attributeName="gradientTransform" type="translate" from="0 0"
-                        to="420 0" dur="6s" repeatCount="indefinite"/>
+                        to="420 0" dur="{LOOP}s" repeatCount="indefinite"/>
     </linearGradient>
   </defs>
   <rect width="{W}" height="{H}" rx="14" fill="url(#sky)"/>
@@ -636,14 +641,14 @@ def build_header():
   <g stroke="{CYAN}" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85">
     <path d="M{W/2 - 268} {H/2 - 18} L{W/2 - 282} {H/2} L{W/2 - 268} {H/2 + 18}">
       <animateTransform attributeName="transform" type="translate" values="0 0;-10 0;0 0"
-                        dur="2.4s" repeatCount="indefinite"/>
+                        dur="{LOOP / 2}s" repeatCount="indefinite"/>
     </path>
     <path d="M{W/2 + 268} {H/2 - 18} L{W/2 + 282} {H/2} L{W/2 + 268} {H/2 + 18}">
       <animateTransform attributeName="transform" type="translate" values="0 0;10 0;0 0"
-                        dur="2.4s" repeatCount="indefinite"/>
+                        dur="{LOOP / 2}s" repeatCount="indefinite"/>
     </path>
   </g>
-  {scanline(W, H, 5.5, 0.12)}
+  {scanline(W, H, LOOP, 0.12)}
 </svg>
 '''
 
@@ -662,7 +667,7 @@ def build_divider():
   </defs>
   <rect x="0" y="{H/2 - 1}" width="{W}" height="2" fill="url(#dl)"/>
   <circle cy="{H/2}" r="4" fill="{CYAN}" filter="url(#soft)" cx="0">
-    <animate attributeName="cx" values="60;{W - 60};60" dur="7s" repeatCount="indefinite"
+    <animate attributeName="cx" values="60;{W - 60};60" dur="{LOOP}s" repeatCount="indefinite"
              calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
   </circle>
 </svg>
@@ -707,17 +712,17 @@ def build_cards():
              fill="url(#pad)"/>
     <g>
       <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0"
-                        dur="4.6s" repeatCount="indefinite" calcMode="spline"
+                        dur="{LOOP}s" repeatCount="indefinite" calcMode="spline"
                         keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
       <image href="{uri}" xlink:href="{uri}" x="{x:.1f}" y="{CARD_PAD}"
              width="{w:.1f}" height="{inner_h}"/>
     </g>
-    {scanline(CARD_W, CARD_H, 7, 0.10)}
+    {scanline(CARD_W, CARD_H, LOOP, 0.10)}
     {corner_ticks(CARD_W, CARD_H, 9, 16)}
   </g>
   <rect width="{CARD_W}" height="{CARD_H}" rx="14" fill="none" stroke="url(#edge)"
         stroke-width="1.8" opacity="0.7">
-    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="{3.6 + i * 0.4}s"
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="{LOOP}s"
              repeatCount="indefinite"/>
   </rect>
 </svg>

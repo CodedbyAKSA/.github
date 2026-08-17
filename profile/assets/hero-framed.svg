@@ -52,7 +52,7 @@
     </g>
   <rect width="752" height="533" rx="14" fill="none" stroke="url(#edge)" stroke-width="2"
         opacity="0.75">
-    <animate attributeName="opacity" values="0.45;0.95;0.45" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.45;0.95;0.45" dur="4.0s" repeatCount="indefinite"/>
   </rect>
 
   <circle cx="28" cy="26" r="4.5" fill="#e879f9" opacity="0.85"/><circle cx="43" cy="26" r="4.5" fill="#fbbf24" opacity="0.85"/><circle cx="58" cy="26" r="4.5" fill="#4ade80" opacity="0.85"/>
@@ -65,7 +65,7 @@
     <rect x="24" y="52" width="704" height="457" fill="url(#vig)"/>
     <rect x="24" y="52" width="704" height="30" fill="url(#scan)" opacity="0.14">
       <animateTransform attributeName="transform" type="translate"
-                        values="0 -40;0 497" dur="7s" repeatCount="indefinite"/>
+                        values="0 -40;0 497" dur="4.0s" repeatCount="indefinite"/>
     </rect>
   </g>
 

@@ -8,12 +8,19 @@ URLs changed nothing -- so it is not path resolution. Raster images render on
 every GitHub surface, so the README points at these instead. The SVGs stay in
 the repo as the editable source.
 
-    title.svg  -> title.gif   (animated, the intro replays on loop)
-    everything else -> .png   (settled frame, 2x for sharpness)
+    title.svg       -> title.gif  (replays the whole intro)
+    cards, heading,
+    divider         -> .gif       (one LOOP period, loops seamlessly)
+    hero-framed.svg -> .jpg       (a photo; its only motion was a scanline)
 
 Frames are captured deterministically: the SVG is inlined into the page so
 pauseAnimations() + setCurrentTime() can step the SMIL clock exactly, rather
 than sampling wall-clock time and hoping.
+
+The ambient GIFs start at SETTLED_T and run exactly one LOOP period. Because
+every looping animation in make_art.py uses LOOP or a divisor of it, the last
+frame flows back into the first -- verified by comparing the seam against the
+median frame-to-frame delta.
 
 Setup:
     pip install playwright imageio-ffmpeg
@@ -31,25 +38,28 @@ import sys
 HERE = pathlib.Path(__file__).resolve().parent
 ASSETS = HERE.parent / "profile" / "assets"
 
-# Settled-state stills: (svg, CSS width, device scale, format)
-# The hero is a photograph, so JPEG at 1x beats an upscaled PNG on both size
-# and quality -- the source photo is only 704px wide. Everything else is flat
-# colour and line work, which palette-quantised PNG handles well.
-STILLS = [
-    ("hero-framed.svg", 880, 1, "jpeg"),
-    ("character-select.svg", 880, 2, "png"),
-    ("divider.svg", 880, 2, "png"),
-    ("P1card.svg", 230, 2, "png"),
-    ("P2card.svg", 230, 2, "png"),
-    ("P3card.svg", 230, 2, "png"),
-    ("P4card.svg", 230, 2, "png"),
-]
 SETTLED_T = 8.0          # past the end of every entrance animation
+LOOP = 4.0               # must match make_art.LOOP
 
-GIF_SRC = "title.svg"
-GIF_W = 880
-GIF_FPS = 12
-GIF_SECONDS = 7.0        # one full intro: launch, fireworks, typing, orbit
+# Looping GIFs: (svg, CSS width, fps, start time, seconds, colours)
+# These are captured over exactly one LOOP period starting from the settled
+# frame, so the last frame flows back into the first with no visible jump.
+LOOPS = [
+    ("character-select.svg", 880, 8, SETTLED_T, LOOP, 64),
+    ("divider.svg", 880, 10, SETTLED_T, LOOP, 48),
+    ("P1card.svg", 180, 10, SETTLED_T, LOOP, 96),
+    ("P2card.svg", 180, 10, SETTLED_T, LOOP, 96),
+    ("P3card.svg", 180, 10, SETTLED_T, LOOP, 96),
+    ("P4card.svg", 180, 10, SETTLED_T, LOOP, 96),
+]
+
+# The banner replays its whole intro rather than looping an ambient beat.
+# 8s is two LOOP periods, so the ambient layer still lines up at the seam.
+LOOPS_INTRO = [("title.svg", 880, 10, 0.0, 8.0, 112)]
+
+# Stills. The hero is a photograph: JPEG at 1x beats both an upscaled PNG and
+# a 128-colour GIF on size and quality, and its only motion was a scanline.
+STILLS = [("hero-framed.svg", 880, 1, "jpeg")]
 
 
 def find_chrome():
@@ -90,6 +100,7 @@ def main():
         shutil.rmtree(frames)
     frames.mkdir()
 
+    todo = []
     chrome = find_chrome()
     with sync_playwright() as p:
         launch = {"args": ["--no-sandbox"]}
@@ -132,28 +143,34 @@ def main():
             squeeze(raw, out, fmt)
             print(f"  {out.name:24s} {out.stat().st_size / 1024:7.1f} KB")
 
-        page = open_svg(GIF_SRC, GIF_W)
-        n = int(GIF_SECONDS * GIF_FPS)
-        for i in range(n):
-            shoot(page, i / GIF_FPS, frames / f"f{i:04d}.png")
-        page.close()
+        for name, width, fps, t0, secs, colors in LOOPS + LOOPS_INTRO:
+            stem = pathlib.Path(name).stem
+            shot_dir = frames / stem
+            shot_dir.mkdir()
+            page = open_svg(name, width)
+            n = int(round(secs * fps))
+            for i in range(n):
+                shoot(page, t0 + i / fps, shot_dir / f"f{i:04d}.png")
+            page.close()
+            todo.append((stem, shot_dir, fps, n, colors))
         browser.close()
 
     ff = find_ffmpeg()
-    gif = ASSETS / (pathlib.Path(GIF_SRC).stem + ".gif")
-    pal = frames / "pal.png"
-    # a single global palette keeps the file far smaller than per-frame palettes,
-    # and bayer dithering compresses better than error-diffusion on gradients
-    subprocess.run([ff, "-loglevel", "error", "-y", "-i", str(frames / "f%04d.png"),
-                    "-vf", "palettegen=max_colors=128:stats_mode=diff",
-                    str(pal)], check=True)
-    subprocess.run([ff, "-loglevel", "error", "-y", "-framerate", str(GIF_FPS),
-                    "-i", str(frames / "f%04d.png"), "-i", str(pal),
-                    "-lavfi", "paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle",
-                    "-loop", "0", str(gif)], check=True)
+    for stem, shot_dir, fps, n, colors in todo:
+        gif = ASSETS / f"{stem}.gif"
+        pal = shot_dir / "pal.png"
+        # one global palette is far smaller than per-frame palettes, and bayer
+        # dithering compresses better than error diffusion on these gradients
+        subprocess.run([ff, "-loglevel", "error", "-y", "-i", str(shot_dir / "f%04d.png"),
+                        "-vf", f"palettegen=max_colors={colors}:stats_mode=diff",
+                        str(pal)], check=True)
+        subprocess.run([ff, "-loglevel", "error", "-y", "-framerate", str(fps),
+                        "-i", str(shot_dir / "f%04d.png"), "-i", str(pal),
+                        "-lavfi", "paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle",
+                        "-loop", "0", str(gif)], check=True)
+        print(f"  {gif.name:24s} {gif.stat().st_size / 1024:7.1f} KB "
+              f"({n} frames @ {fps}fps)")
     shutil.rmtree(frames)
-    print(f"  {gif.name:24s} {gif.stat().st_size / 1024:7.1f} KB "
-          f"({n} frames @ {GIF_FPS}fps)")
 
 
 if __name__ == "__main__":
