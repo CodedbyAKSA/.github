@@ -1,9 +1,12 @@
 <div align="center">
 
-<!-- All banner art is generated: run tools/make_art.py to rebuild it. -->
-<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/title.svg" alt="CodedbyAKSA" width="100%">
+<!-- Art is generated. Rebuild with:
+       python3 tools/make_art.py && python3 tools/rasterize.py
+     The README must point at the .gif/.png/.jpg, not the .svg -- see
+     profile/assets/README.md for why. -->
+<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/title.gif" alt="CodedbyAKSA" width="100%">
 
-<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/hero-framed.svg" alt="The CodedbyAKSA team" width="100%">
+<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/hero-framed.jpg" alt="The CodedbyAKSA team" width="100%">
 
 Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic quests across the codebase, battling bugs, and force-pushing our way to victory.
 
@@ -12,13 +15,13 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
 <br>
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/character-select.svg" alt="CHARACTER SELECT" width="100%">
+<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/character-select.png" alt="CHARACTER SELECT" width="100%">
 </div>
 
 <table align="center" style="border: none;">
   <tr>
     <td width="50%">
-      <img align="left" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P1card.svg" height="210" alt="Karthik Janardhan">
+      <img align="left" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P1card.png" height="210" alt="Karthik Janardhan">
       <h3><code>Karthik Janardhan</code></h3>
       <b>Class:</b> GenAI Dev, LLM Analysts, Fullstack & Astrophile <br>
       <a href="https://github.com/karthikj30"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
@@ -27,7 +30,7 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
       <br><i>Fullstack developer and AI/ML & GenAI explorer.</i>
     </td>
     <td width="50%" align="right">
-      <img align="right" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P2card.svg" height="210" alt="Anushka Kotal">
+      <img align="right" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P2card.png" height="210" alt="Anushka Kotal">
       <h3><code>Anushka Kotal</code></h3>
       <b>Class:</b> CyberSecurity Analysts & Web Developer <br>
       <a href="https://github.com/anu07718"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
@@ -37,7 +40,7 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
   </tr>
   <tr>
     <td width="50%">
-      <img align="left" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P3card.svg" height="210" alt="Stash Lopes">
+      <img align="left" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P3card.png" height="210" alt="Stash Lopes">
       <h3><code>Stash Lopes</code></h3>
       <b>Class:</b> Web Designer & Systems Dev <br>
       <a href="https://github.com/stashlop"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
@@ -46,7 +49,7 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
       <br><i>Engineer in progress, building projects across AI, web, and systems.</i>
     </td>
     <td width="50%" align="right">
-      <img align="right" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P4card.svg" height="210" alt="Ashwin Koonissery">
+      <img align="right" src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/P4card.png" height="210" alt="Ashwin Koonissery">
       <h3><code>Ashwin Koonissery</code></h3>
       <b>Class:</b> AI/ML Engineer & Software Dev<br>
       <a href="https://github.com/ashwin8332"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
@@ -61,7 +64,7 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
 
 <br>
 
-<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/divider.svg" alt="" width="100%">
+<img src="https://raw.githubusercontent.com/CodedbyAKSA/.github/main/profile/assets/divider.png" alt="" width="100%">
 
 <b>⚔️ Four developers. One codebase. Zero merge conflicts (eventually). ⚔️</b>
 

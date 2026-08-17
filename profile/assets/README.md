@@ -24,36 +24,47 @@ Replace a source image, re-run the generator, and commit both.
 
 ## Generated (do not edit)
 
-| File                   | What it is                                            |
-| ---------------------- | ----------------------------------------------------- |
-| `title.svg`            | Hero banner — HUD scene, wordmark types itself in     |
-| `hero-framed.svg`      | `hero.png` inside a matching HUD frame                |
-| `P1card.svg` … `P4card.svg` | Portraits in matching framed cards               |
-| `character-select.svg` | Section heading                                       |
-| `divider.svg`          | Neon rule above the footer                            |
+Rebuilding is two stages:
 
-All six share one deep-navy palette so the profile reads as a single piece
-against GitHub's dark background. Each is self-contained: the wordmark is
-baked to vector paths and bitmaps are inlined as data URIs, because GitHub
-serves README images through a proxy that can't load web fonts or fetch
-sibling files. Motion is SMIL, which does run in proxied `<img>` SVGs.
+```sh
+python3 tools/make_art.py    # sources -> .svg
+python3 tools/rasterize.py   # .svg    -> .gif / .png / .jpg
+```
 
-The palette and animation clock are constants at the top of the generator.
+| Stage 1 — SVG          | Stage 2 — what the README uses | What it is                     |
+| ---------------------- | ------------------------------ | ------------------------------ |
+| `title.svg`            | `title.gif`                    | Hero banner, wordmark types in |
+| `hero-framed.svg`      | `hero-framed.jpg`              | Team photo in a HUD frame      |
+| `P1card.svg` … `P4card.svg` | `P1card.png` … `P4card.png` | Portraits in framed cards   |
+| `character-select.svg` | `character-select.png`         | Section heading                |
+| `divider.svg`          | `divider.png`                  | Neon rule above the footer     |
 
-## Two rules for referencing these from the README
+All of it shares one deep-navy palette so the profile reads as a single piece
+against GitHub's dark background. The palette and the animation clock are
+constants at the top of `make_art.py`.
 
-**Link them by absolute `raw.githubusercontent.com` URL, not a relative path.**
-The profile README lives in `profile/`, but the GitHub mobile app presents it
-as `CodedbyAKSA/README.md` and resolves relative paths against the repo root,
-so `assets/title.svg` 404s there and every image renders as a broken link.
-Absolute URLs resolve the same everywhere. (This is also why the shields.io
-badges kept working when nothing else did — they were already absolute.)
+## The README must reference the raster files, not the SVGs
 
-**Keep the finished frame in the elements' own attributes.** Staged entrances
-animate from `0s` with the delay encoded in `keyTimes`, rather than sitting at
-`opacity="0"` waiting for a `begin` time. A renderer that ignores SMIL then
-shows the completed artwork instead of a near-empty canvas. `tools/make_art.py`
-has a `reveal()` helper that does this — use it for anything that fades in.
+**The GitHub mobile app will not render these SVGs.** Every one showed up as a
+broken-image link while the shields.io badges beside them rendered fine, and
+switching from relative paths to absolute `raw.githubusercontent.com` URLs
+changed nothing — so it is not path resolution. The app also surfaced a
+"Something went wrong" error on the page. `rasterize.py` exists to sidestep the
+whole question: GIF, PNG and JPEG render on every GitHub surface.
+
+So the SVGs are the editable source and never appear in the README. If you add
+new art, rasterise it and link the raster.
+
+Two supporting details worth keeping:
+
+- **Absolute URLs.** Harmless, and removes any doubt about how a client
+  resolves a path relative to `profile/`.
+- **The SVGs degrade to their finished frame.** Staged entrances animate from
+  `0s` with the delay encoded in `keyTimes` instead of sitting at
+  `opacity="0"` waiting for a `begin` time, so a renderer that ignores SMIL
+  still shows completed artwork. `make_art.py` has a `reveal()` helper for
+  this — use it for anything that fades in. It is also what lets
+  `rasterize.py` capture a correct still by seeking the SMIL clock.
 
 Once these are committed the profile renders automatically at
 <https://github.com/CodedbyAKSA>.
