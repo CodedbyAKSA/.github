@@ -20,7 +20,7 @@ Welcome to **CodedbyAKSA**. We are a party of four developers embarking on epic 
     <td width="50%">
       <img align="left" src="assets/P1card.svg" height="210" alt="Karthik Janardhan">
       <h3><code>Karthik Janardhan</code></h3>
-      <b>Class:</b> Fullstack & GenAI Dev <br>
+      <b>Class:</b> GenAI Dev, LLM Analysts, Fullstack & Astrophile <br>
       <a href="https://github.com/karthikj30"><img src="https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white" alt="GitHub"></a>
       <a href="https://www.linkedin.com/in/karthik-janardhan-73a8b12a8/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
       <a href="https://www.karthikjanardhan.me/"><img src="https://img.shields.io/badge/Portfolio-FF5722?style=flat&logo=googlechrome&logoColor=white" alt="Portfolio"></a><br>
