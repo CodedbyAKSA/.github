@@ -1,25 +1,44 @@
 # Assets
 
-Images referenced by [`profile/README.md`](../README.md).
+Everything the org profile renders. **The `.svg` files here are generated** —
+run [`tools/make_art.py`](../../tools/make_art.py) to rebuild them all, and
+don't hand-edit them.
 
-`title.svg` is generated — run [`tools/make_title.py`](../../tools/make_title.py)
-to rebuild it after changing the wordmark or its colours. Don't hand-edit it.
-It is a self-contained animated SVG (neon grid, binary rain, rockets,
-fireworks, laptop, trophy, and the wordmark typing itself in on load); the
-animation clock lives in the constants at the top of that script.
+## Source images (edit these)
 
-The portraits are sized by **height**, not width, so that characters drawn on
-differently-proportioned canvases still appear the same size. Any aspect ratio
-works; the image is scaled to 210px tall.
+| File       | Feeds into        | Notes                                       |
+| ---------- | ----------------- | ------------------------------------------- |
+| `hero.png` | `hero-framed.svg` | Team photo. Any size; ~1200px wide is plenty. |
+| `P1.png`   | `P1card.svg`      | Karthik Janardhan — character portrait       |
+| `P2.png`   | `P2card.svg`      | Anushka Kotal — character portrait           |
+| `P3.png`   | `P3card.svg`      | Stash Lopes — character portrait             |
+| `P4.png`   | `P4card.svg`      | Ashwin Koonissery — character portrait       |
 
-| File       | Used for                                | Suggested size          |
-| ---------- | --------------------------------------- | ----------------------- |
-| `title.svg`| Animated hero banner (generated)        | 1200×430 (rendered full width) |
-| `hero.png` | Banner under the wordmark               | ~1200px wide (rendered at 600px) |
-| `P1.png`   | Karthik Janardhan — character portrait    | any ratio, ~1000px+ tall (rendered 210px tall) |
-| `P2.png`   | Anushka Kotal — character portrait        | any ratio, ~1000px+ tall (rendered 210px tall) |
-| `P3.png`   | Stash Lopes — character portrait          | any ratio, ~1000px+ tall (rendered 210px tall) |
-| `P4.png`   | Ashwin Koonissery — character portrait    | any ratio, ~1000px+ tall (rendered 210px tall) |
+Portraits should have a transparent background. **Any aspect ratio works** —
+each one is fitted by height inside its card, so a portrait drawn on a wider
+canvas still shows the character at the same size as the others. (`P3.png` is
+1142×1377 where the rest are 1024×1536; sizing by width is what used to make
+Stash render 20% smaller than everyone else.)
 
-Once these five files are committed, the org profile renders automatically at
+Replace a source image, re-run the generator, and commit both.
+
+## Generated (do not edit)
+
+| File                   | What it is                                            |
+| ---------------------- | ----------------------------------------------------- |
+| `title.svg`            | Hero banner — HUD scene, wordmark types itself in     |
+| `hero-framed.svg`      | `hero.png` inside a matching HUD frame                |
+| `P1card.svg` … `P4card.svg` | Portraits in matching framed cards               |
+| `character-select.svg` | Section heading                                       |
+| `divider.svg`          | Neon rule above the footer                            |
+
+All six share one deep-navy palette so the profile reads as a single piece
+against GitHub's dark background. Each is self-contained: the wordmark is
+baked to vector paths and bitmaps are inlined as data URIs, because GitHub
+serves README images through a proxy that can't load web fonts or fetch
+sibling files. Motion is SMIL, which does run in proxied `<img>` SVGs.
+
+The palette and animation clock are constants at the top of the generator.
+
+Once these are committed the profile renders automatically at
 <https://github.com/CodedbyAKSA>.

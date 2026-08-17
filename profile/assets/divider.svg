@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 26"
+     width="900" height="26" role="img" aria-label="">
+  <defs>
+    
+    <radialGradient id="sky" cx="0.5" cy="0.45" r="0.78">
+      <stop offset="0" stop-color="#1b2160"/>
+      <stop offset="0.55" stop-color="#0f1440"/>
+      <stop offset="1" stop-color="#070a22"/>
+    </radialGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#67e8f9" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#67e8f9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="halo" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/></feMerge>
+    </filter>
+    <linearGradient id="dl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#a78bfa" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#67e8f9" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="12.0" width="900" height="2" fill="url(#dl)"/>
+  <circle cy="13.0" r="4" fill="#67e8f9" filter="url(#soft)" cx="0">
+    <animate attributeName="cx" values="60;840;60" dur="7s" repeatCount="indefinite"
+             calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+  </circle>
+</svg>
